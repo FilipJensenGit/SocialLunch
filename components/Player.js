@@ -10,11 +10,6 @@ class Player extends Component {
 
   render() {
     var styles = {
-      points: {
-        marginRight: '10px',
-        width: '100px',
-        display: 'inline-block'
-      },
       order: {
         marginRight: '10px',
         width: '40px',
@@ -28,7 +23,7 @@ class Player extends Component {
       playerLine: {
         margin: '10px 10px',
         padding: '10px',
-        width: '50%',
+        width: '40%',
         borderStyle: 'solid',
         borderRadius: '5px',
         borderWidth: '1px',
@@ -49,7 +44,6 @@ class Player extends Component {
       <div style={styles.playerLine}>
         <div style={styles.order}>{this.props.orderNumber}</div>
         <div style={styles.name}>{this.props.player.name}</div>
-        <div style={styles.points}>{this.props.player.points} points</div>
         <button style={styles.buttonStyle} onClick={this.handleDelete.bind(this)}>Cancel</button>
       </div>
     )

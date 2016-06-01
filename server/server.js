@@ -7,14 +7,13 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var mongoose = require('mongoose');
 var bodyParser  = require("body-parser");
 var methodOverride = require("method-override");
-var mongoose = require('mongoose');
 var scheduler = require('node-schedule');
 var socketIO = require('socket.io');
 
 
 // API routes
 var app = express();
-var port = 3000;
+var port = 3010;
 
 //REST specific stuff
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,11 +30,11 @@ app.use(express.static('./dist'));
 
 // Import DB Models and controllers
 var playersModel     = require('../models/player')(app, mongoose);
-var matchesModel     = require('../models/match')(app, mongoose);
+var matchesModel     = require('../models/LunchGroup')(app, mongoose);
 var PlayerCtrl = require('../dbcontrollers/foosball_controller');
 
 //DATABASE connection
-mongoose.connect('mongodb://localhost/foosball', function(err, res) {
+mongoose.connect('mongodb://localhost/SocialLunch', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
@@ -77,7 +76,7 @@ mongoose.connect('mongodb://localhost/foosball', function(err, res) {
   app.use('/api', matches);
 
   //CRON like jobs
-  var j = scheduler.scheduleJob('0 30 13 * * *', function(){
+  var j = scheduler.scheduleJob('0 03 15 * * 5', function(){
     console.log('Scheduled job: ' + new Date());
     PlayerCtrl.generateMatches();
     io.sockets.emit('update');

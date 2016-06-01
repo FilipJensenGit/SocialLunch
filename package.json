@@ -1,16 +1,16 @@
 {
-  "name": "react-social-foosball",
+  "name": "react-social-lunch",
   "version": "1.0.0",
-  "description": "Random foosball matching",
+  "description": "Random lunch matching",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server/server.js --ignore components"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joaquindk/SocialFoosball"
+    "url": "https://github.com/FilipJensenGit/SocialLunch"
   },
-  "author": "Joaquin Guillen",
+  "author": "Filip Jensen",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.4.5",

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Match from './Match'
+import LunchGroup from './LunchGroup'
 
 class MatchList extends Component {
 
@@ -15,13 +15,12 @@ class MatchList extends Component {
       <div style={styles.matchContainer}>
         {
             this.props.matches.map((match) => {
-              return <Match key={match._id} match={match}/>
+              return <LunchGroup key={match._id} match={match}/>
             })
         }
       </div>
     )
   }
-
 }
 
 export default MatchList

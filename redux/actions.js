@@ -1,7 +1,7 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-var server = "http://localhost:3000/";
+var server = "http://localhost:3010/";
 
 function fetchingPlayers(loading) {
   return {

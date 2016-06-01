@@ -29,7 +29,7 @@ class App extends Component {
     }
     var participantInput = (
       <div>
-        <h2>Sign up!</h2>
+        <h2>Sign up for this weeks lunch date!</h2>
         <PlayerInput dispatch={this.props.dispatch} spots={20 - this.props.players.length}/>
         <PlayerList players={this.props.players} dispatch={this.props.dispatch}/>
       </div>
@@ -37,7 +37,7 @@ class App extends Component {
 
     var todaysMatches = (
       <div>
-        <h2>Todays matches</h2>
+        <h2>This weeks lunch dates!</h2>
         <MatchList matches={this.props.matches}/>
       </div>
     );

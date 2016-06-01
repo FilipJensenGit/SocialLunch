@@ -71,15 +71,6 @@ class PlayerInput extends Component {
         </div>
 
         <div style={styles.inputSection}>
-          <input
-            style={styles.inputElement}
-            type="text"
-            placeholder="Type in your points"
-            value={this.state.inputScore}
-            onChange={this.handlePointsChange.bind(this)}
-          />
-        </div>
-        <div style={styles.inputSection}>
           <button style={styles.submitButton} onClick={this.handleSubmit.bind(this)}>Join</button>
         </div>
       </div>
