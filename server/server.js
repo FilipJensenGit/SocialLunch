@@ -76,7 +76,7 @@ mongoose.connect('mongodb://localhost/SocialLunch', function(err, res) {
   app.use('/api', matches);
 
   //CRON like jobs
-  var j = scheduler.scheduleJob('0 03 15 * * 5', function(){
+  var j = scheduler.scheduleJob('0 00 11 * * 5', function(){
     console.log('Scheduled job: ' + new Date());
     PlayerCtrl.generateMatches();
     io.sockets.emit('update');
