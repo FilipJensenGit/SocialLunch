@@ -17,24 +17,28 @@ function _findAllTodayPlayers(resultFunction) {
   var today = new Date();
   var subtractNumber = 0;
   
-  if(today.getDay == 0){
+  // Sunday
+  if(today.getDay() == 0){
 	  subtractNumber = 2;
-  } else if(today.getDay == 1){
+  // Monday
+  } else if(today.getDay() == 1){
 	  subtractNumber = 3;
-  } else if(today.getDay == 2){
+  } else if(today.getDay() == 2){
 	  subtractNumber = 4;
-  } else if(today.getDay == 3){
+  } else if(today.getDay() == 3){
 	  subtractNumber = 5;
-  } else if(today.getDay == 4){
+  } else if(today.getDay() == 4){
 	  subtractNumber = 6;
-  } else if(today.getDay == 5){
+  } else if(today.getDay() == 5){
 	  subtractNumber = 7;
-  } else if(today.getDay == 6){
+  } else if(today.getDay() == 6){
 	  subtractNumber = 1;
   }
   
   fromDate.setDate(today.getDate() - subtractNumber);
   fromDate.setHours(14,0,0,0);
+  console.log("From date is: " + fromDate);
+  console.log("getDate is: " + today.getDate() + " Sub number is: " + subtractNumber);
   return PlayerDB.find({subscribedTo: {$gt: fromDate}}, resultFunction);
 }
 
@@ -43,19 +47,19 @@ function _findAllTodayMatches(resultFunction) {
   var today = new Date();
   var subtractNumber = 0;
   
-  if(today.getDay == 0){
+  if(today.getDay() == 0){
 	  subtractNumber = 2;
-  } else if(today.getDay == 1){
+  } else if(today.getDay() == 1){
 	  subtractNumber = 3;
-  } else if(today.getDay == 2){
+  } else if(today.getDay() == 2){
 	  subtractNumber = 4;
-  } else if(today.getDay == 3){
+  } else if(today.getDay() == 3){
 	  subtractNumber = 5;
-  } else if(today.getDay == 4){
+  } else if(today.getDay() == 4){
 	  subtractNumber = 6;
-  } else if(today.getDay == 5){
+  } else if(today.getDay() == 5){
 	  subtractNumber = 7;
-  } else if(today.getDay == 6){
+  } else if(today.getDay() == 6){
 	  subtractNumber = 1;
   }
   
