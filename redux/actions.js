@@ -2,7 +2,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 //var server = "http://localhost:3010/";
-var server = "http://foosball.schantz.com:3010/";
+var server = "http://lunch.schantz.com:3010/";
 
 function fetchingPlayers(loading) {
   return {
