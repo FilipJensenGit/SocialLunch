@@ -4,7 +4,8 @@
   "description": "Random lunch matching",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon server/server.js --ignore components"
+    "serve": "nodemon server/server.js --ignore components",
+    "start": "nodemon server/server.js --ignore components"
   },
   "repository": {
     "type": "git",
