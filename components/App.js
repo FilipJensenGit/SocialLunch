@@ -30,7 +30,7 @@ class App extends Component {
     var participantInput = (
       <div>
         <h2>Sign up for this weeks lunch date!</h2>
-        <PlayerInput dispatch={this.props.dispatch} spots={20 - this.props.players.length}/>
+        <PlayerInput dispatch={this.props.dispatch} spots={30 - this.props.players.length}/>
         <PlayerList players={this.props.players} dispatch={this.props.dispatch}/>
       </div>
     );
