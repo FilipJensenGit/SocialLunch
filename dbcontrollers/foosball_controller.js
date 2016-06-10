@@ -97,7 +97,6 @@ exports.addPlayer = function(req, res) {
           if(existantPlayer == null || existantPlayer.length == 0) {
             var addedPlayer = new PlayerDB({
                 name:    req.body.name,
-                points:  req.body.points !== null && req.body.points ? req.body.points : 1000,
                 subscribedTo:  new Date()
             });
 
