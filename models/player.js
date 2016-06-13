@@ -3,7 +3,6 @@ var Schema   = mongoose.Schema;
 
 var player = new Schema({
   name:    { type: String },
-  points:     { type: Number },
   subscribedTo: {type: Date}
 });
 

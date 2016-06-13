@@ -2,7 +2,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 //var server = "http://localhost:3010/";
-var server = "http://foosball.schantz.com:3010/";
+var server = "http://lunch.schantz.com:3010/";
 
 function fetchingPlayers(loading) {
   return {
@@ -115,11 +115,11 @@ function _internalFetchMatches() {
 }
 
 let actions = {
-  addPlayer: function(name, points) {
+  addPlayer: function(name) {
     return function(dispatch, getState) {
       var state = getState();
       var url = server + "api/players";
-      var player = {name: name, points: points};
+      var player = {name: name};
       dispatch(addingPlayer(player));
       var strPlayer = JSON.stringify(player);
       return fetch(url,
