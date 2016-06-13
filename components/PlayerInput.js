@@ -18,13 +18,6 @@ class PlayerInput extends Component {
     })
   }
 
-  handlePointsChange(event) {
-    this.setState({
-      inputName: this.state.inputName,
-      inputScore: event.target.value
-    })
-  }
-
   handleSubmit(event) {
     event.preventDefault()
     this.props.dispatch(actions.addPlayer(this.state.inputName, this.state.inputScore))

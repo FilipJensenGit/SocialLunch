@@ -15,56 +15,24 @@ exports.findAllPlayers = function(req, res) {
 function _findAllTodayPlayers(resultFunction) {
   var fromDate = new Date();
   var today = new Date();
-  var subtractNumber = 0;
+  var daysSinceLastLunchDate = _getDaysSinceLastFriday();
   
-  // Sunday
-  if(today.getDay() == 0){
-	  subtractNumber = 2;
-  // Monday
-  } else if(today.getDay() == 1){
-	  subtractNumber = 3;
-  } else if(today.getDay() == 2){
-	  subtractNumber = 4;
-  } else if(today.getDay() == 3){
-	  subtractNumber = 5;
-  } else if(today.getDay() == 4){
-	  subtractNumber = 6;
-  } else if(today.getDay() == 5){
-	  subtractNumber = 7;
-  } else if(today.getDay() == 6){
-	  subtractNumber = 1;
-  }
-  
-  fromDate.setDate(today.getDate() - subtractNumber);
-  fromDate.setHours(14,0,0,0);
-  console.log("From date is: " + fromDate);
-  console.log("getDate is: " + today.getDate() + " Sub number is: " + subtractNumber);
+  fromDate.setDate(today.getDate() - daysSinceLastLunchDate);
+  fromDate.setHours(12,30,0,0);
   return PlayerDB.find({subscribedTo: {$gt: fromDate}}, resultFunction);
+}
+
+function _getDaysSinceLastFriday() {
+  var today = new Date();
+  return (today.getDay() + 1) % 7 + 1; // getDay(): Sun = 0, Mon = 1, ... , Sat = 6
 }
 
 function _findAllTodayMatches(resultFunction) {
   var fromDate = new Date();
-  var today = new Date();
-  var subtractNumber = 0;
+  var toDate = new Date();
   
-  if(today.getDay() == 0){
-	  subtractNumber = 2;
-  } else if(today.getDay() == 1){
-	  subtractNumber = 3;
-  } else if(today.getDay() == 2){
-	  subtractNumber = 4;
-  } else if(today.getDay() == 3){
-	  subtractNumber = 5;
-  } else if(today.getDay() == 4){
-	  subtractNumber = 6;
-  } else if(today.getDay() == 5){
-	  subtractNumber = 7;
-  } else if(today.getDay() == 6){
-	  subtractNumber = 1;
-  }
-  
-  fromDate.setDate(today.getDate() - subtractNumber);
-  fromDate.setHours(15,0,0,0);
+  fromDate.setHours(11,30,0,0);
+  toDate.setHours(12,30,0,0);
   return LunchGroupDB.find({matchDate: {$gt: fromDate, $lt:today}}).populate('participants').exec(resultFunction);
 }
 
@@ -97,7 +65,6 @@ exports.addPlayer = function(req, res) {
           if(existantPlayer == null || existantPlayer.length == 0) {
             var addedPlayer = new PlayerDB({
                 name:    req.body.name,
-                points:  req.body.points !== null && req.body.points ? req.body.points : 1000,
                 subscribedTo:  new Date()
             });
 
