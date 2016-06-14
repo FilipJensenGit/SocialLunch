@@ -33,7 +33,7 @@ function _findAllTodayMatches(resultFunction) {
   
   fromDate.setHours(11,30,0,0);
   toDate.setHours(12,30,0,0);
-  return LunchGroupDB.find({matchDate: {$gt: fromDate, $lt:today}}).populate('participants').exec(resultFunction);
+  return LunchGroupDB.find({matchDate: {$gt: fromDate, $lt:toDate}}).populate('participants').exec(resultFunction);
 }
 
 exports.findAllTodayPlayers = function(req, res) {
