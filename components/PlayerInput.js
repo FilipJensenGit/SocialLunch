@@ -71,7 +71,6 @@ class PlayerInput extends Component {
     var closedMsg = <div>No more participants for today!</div>
     return this.props.spots > 0 ? input : closedMsg;
   }
-
 }
 
 export default PlayerInput

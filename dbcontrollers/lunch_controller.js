@@ -99,26 +99,12 @@ exports.deletePlayer = function(req, res) {
 
 exports.generateMatches = function() {
   _findAllTodayPlayers((err, players) => {
+	  
     var tables = ['1st Table', '2nd Table', '3rd Table', '4th Table', '5th Table'];
     var numParticipants = players.length;
-	/*
-	var numGroups = 0;
-	var personsPerTable = 0;
-	
-	for (var k=1; k<=5; k++){
-		if((numParticipants/k)<=6){
-			numGroups = k;
-			console.log(numGroups);
-			personsPerTable = (numParticipants/k);
-			console.log(personsPerTable);
-			break;
-		}	
-	}
-	
-	//var personsPerTable = 6;
-*/
 	var numGroups = Math.ceil(numParticipants/6);	
 	var lunchGroups = new Array(numGroups);
+	
 	for(var i=0; i<numGroups; i++) {
 		lunchGroups[i] = [];
 	}

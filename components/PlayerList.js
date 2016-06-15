@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Player from './Player'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-
 class PlayerList extends Component {
 
   render() {

@@ -4,10 +4,7 @@ import PlayerList from './PlayerList'
 import MatchList from './MatchList'
 import { connect } from 'react-redux'
 import actions from '../redux/actions'
-
 import css from "../css/social.css"
-
-
 
 class App extends Component {
 
@@ -49,7 +46,6 @@ class App extends Component {
       </div>
     )
   }
-
 }
 
 function mapStateToProps(state) {

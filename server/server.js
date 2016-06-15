@@ -10,7 +10,6 @@ var methodOverride = require("method-override");
 var scheduler = require('node-schedule');
 var socketIO = require('socket.io');
 
-
 // API routes
 var app = express();
 var port = 3010;
@@ -31,7 +30,7 @@ app.use(express.static('./dist'));
 // Import DB Models and controllers
 var playersModel     = require('../models/player')(app, mongoose);
 var matchesModel     = require('../models/LunchGroup')(app, mongoose);
-var PlayerCtrl = require('../dbcontrollers/foosball_controller');
+var PlayerCtrl = require('../dbcontrollers/lunch_controller');
 
 //DATABASE connection
 mongoose.connect('mongodb://localhost/SocialLunch', function(err, res) {
